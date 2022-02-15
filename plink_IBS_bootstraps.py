@@ -101,7 +101,7 @@ with open(args.bfile+".fam", "r") as fam:
         sample_id = line.strip().split()[1]
         samples.append(sample_id)
 
-with open("infile".format(str(args.nboot)), "w") as outf:
+with open("infile", "w") as outf:
 
     for rep in range(args.nboot):
         # load each replicate matrix as a numpy array
@@ -111,7 +111,7 @@ with open("infile".format(str(args.nboot)), "w") as outf:
         # write matrix in PHYLIP format
         outf.write("    {}\n".format(str(len(samples))))
         for i, sample in enumerate(samples):
-            matrix_line = np.array2string(rep_matrix[i,], separator='  ', formatter={'float': lambda x: "{0:0.6f}".format(x)})[1:-1].replace('\n', '')
+            matrix_line = np.array2string(rep_matrix[i,], separator='  ', threshold=5000, formatter={'float': lambda x: "{0:0.6f}".format(x)})[1:-1].replace('\n', '')
             out_line = sample.ljust(12) + matrix_line + "\n"
             outf.write(out_line)
         outf.write("\n")
