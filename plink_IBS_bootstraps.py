@@ -7,10 +7,6 @@
 '''
 a script to calculate pairwise distance matrices on a PLINK dataset with bootstrap replicates
 
-by Pedro Silva 
-https://github.com/pdroslva84
-e-mail: pedrosilva <at> cibio.up.pt
-
 performs bootstrap replicates of a PLINK dataset (bed, bim, bam)
 [http://www.cog-genomics.org/plink/1.9/],
 calculates a pairwise Identity by State (IBS) distance matrix for each replicate
